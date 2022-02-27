@@ -1,0 +1,22 @@
+<app-navbar2></app-navbar2>
+<li *ngFor="let user of users">
+    {{user.userName}}
+</li>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form class="box">
+                    <h1>Login</h1>
+                    <p style="color: white;"> Por favor, introduce tu email y contraseña</p> 
+                    <input type="email" #mail2 placeholder="Email"> 
+                    <input type="password" #password2  placeholder="Password"> 
+                    <a style="color: white" href="/registro">¿Todavía no tienes cuenta?</a> 
+                    <input (click)="searchByMailAndPassword( mail2.value, password2.value)" type="submit"  value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div id="top" class="d-flex justify-content-center h-100">
+  <div class="search">
+    <input (keyup)="search($event)" type="text" class="search-input" placeholder="Buscar" name="">
+    <a href="#" class="search-icon"> <i class="fa fa-search">
+      </i>
+    </a>
+  </div>
+</div>
+<br><br>
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Categorías</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button (click)="searchBaloncesto($event)" ngbDropdownItem>Baloncesto</button>
+                <button (click)="searchFutbol($event)" ngbDropdownItem>Futbol</button>
+                <button (click)="searchVolley($event)" ngbDropdownItem>Volleyball</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<!--Imagenes resultado de la API-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let image of images">
+      <div class="card">
+        <a href="{{image.url}}_b.jpg">
+          <img id="myImg" src="{{image.url}}_m.jpg" title="{{image.title}}">
+        </a>
+        <p></p>
+      </div>
+      <div class="container">
+        <div class="text-center mb-5 pt-2">
+          <a class="button" href="whatsapp://send?text=Mira%20esta%20imagen%20en%20www.davidflickr.com!" data-action="compartir">Compartir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()">
+</div>
+
+<a class="button" href="home#top" id="myBtn"  title="Go to top">Top</a>

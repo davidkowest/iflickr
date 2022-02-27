@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+  </div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <br><br><br>
+      <h3>Sube tus propias imagenes!</h3>
+
+      <div class="form-group offset-md-3 col-md-6">
+        <input placeholder="Titulo" type="text" class="form-control" id="titulo" required [(ngModel)]="tutorial.titulo"
+          name="titulo" />
+      </div>
+
+      <div class="form-group offset-md-3 col-md-6">
+        <input placeholder="URL de imagen" class="form-control" id="descripcion" required
+          [(ngModel)]="tutorial.descripcion" name="descripcion" />
+      </div>
+
+      <div class="form-group offset-md-5 col-md-6">
+        <button (click)="guardarTutorial()" class="btn btn-success">Enviar</button>
+
+      </div>
+    </div>
+
+    <div class="offset-md-3 col-md-6" *ngIf="submitted">
+      <h4>Imagen subida correctamente!</h4>
+      <button class="btn btn-success" (click)="nuevoTutorial()">Subir otra imagen</button>
+      <a class="btn btn-success ml-4" href="/lista" >listado de imagenes</a>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

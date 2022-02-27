@@ -1,0 +1,23 @@
+<app-navbar2></app-navbar2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form (keyup)="comprobar(name.value, mail.value, password.value)" onsubmit="event.preventDefault()" class="box">
+                    <h1>¡Registrate!</h1>
+                    <p style="color: white;"> Por favor, introduce tus datos</p> 
+                    <input id="name" type="text" #name placeholder="Nombre"> 
+                    <input id="email" type="email" #mail placeholder="Email"> 
+                    <input id="password" type="password" #password placeholder="Password"> 
+                    <a style="color: white;" href="login">¿Ya tienes cuenta?</a> 
+                    <input disabled *ngIf="isEnable == false" (click)="addUser(name.value, mail.value, password.value)" type="submit" value="Registrar">
+                    <input *ngIf="isEnable" (click)="addUser(name.value, mail.value, password.value)" type="submit" value="Registrar">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

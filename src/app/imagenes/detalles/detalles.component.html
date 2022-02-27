@@ -1,0 +1,65 @@
+
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="tutorialActual.id">
+      <h4>Imagen</h4>
+      <div>
+          <label><strong>Titulo:</strong></label> {{ tutorialActual.titulo }}
+      </div>
+      <div>
+          <label><strong>Descripcion:</strong></label>
+          <img src="{{tutorialActual.descripcion}}" />
+      </div>
+      <div>
+          <label><strong>Estado:</strong></label>
+          {{ tutorialActual.publicado ? "Publicado" : "Pendiente" }}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/detalles/{{ tutorialActual.id }}">
+          Editar
+      </a>
+  </div>
+
+  <div *ngIf="!tutorialActual">
+      <br />
+      <p>Por favor seleccione un imagen...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="tutorialActual.id" class="edit-form">
+      <h4>Tutorial</h4>
+      <form>
+          <div class="form-group">
+              <label for="titulo">Titulo</label>
+              <input type="text" class="form-control" id="titulo" [(ngModel)]="tutorialActual.titulo"
+                  name="tititulotle" />
+          </div>
+          <div class="form-group">
+              <label for="descripcion">Descripcion</label>
+
+              <img src="{{tutorialActual.descripcion}}" />
+          </div>
+
+
+      </form>
+
+
+
+      <button class="badge badge-danger mr-2" (click)="eliminarTutorial()">
+          Eliminar
+      </button>
+
+      <button type="submit" class="badge badge-success mb-2" (click)="actualizarTutorial()">
+          Actualizar
+      </button>
+      <a type="submit" class="badge badge-success mb-2 ml-4 button" style="background-color: blue;" href="/lista">
+        Atras
+    </a>
+      <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!tutorialActual.id">
+      <br />
+      <p>No se puede acceder a esta Imagen...</p>
+  </div>
+</ng-template>
